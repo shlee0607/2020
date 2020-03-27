@@ -3,9 +3,13 @@
 
 @ This template mimics a C program of
 @ #include <stdio.h>
+@
+@ int A[] = {1, 2, 3, 4};
+@ int B[] = {2, 4, 6, 8};
+@
 @ int main()
 @ {
-@     printf("Output is %d\n", 1);
+@     printf("Output is %d\n", A[0]*B[0]);
 @     return 0;
 @ }
 
@@ -21,23 +25,10 @@ main:
 				@ Use a LDR normal instruction to load the first element of vector B to r5
 
 				@ Use a MUL instruction to multiply r4 and r5 and save the result to r1
-				@ (the r1 will be the second argument of the printf("Output is %d", n) call).
+				@ (r1 will be the second argument of the printf("Output is %d", n) call).
 
 @ Your codes for part 2 (single element multiplication) ends
-				@ Your ALU codes start here
-	ldr	r2, =vectorA	@ r2 has a pointer to vectorA
-	ldr	r3, =vectorB	@ r3 has a pointer to vectorB
 
-	ldr	r4, [r2]	@ r4 has the first element of vector A
-	ldr	r5, [r3]	@ r5 has the first element of vector B
-
-	mul	r1, r4, r5	@ r1 has the result of multiplication of A[0] and B[0]
-
-				@ Your codes must NOT update the special registers (SP, LR, PC).
-
-				@ Your ALU codes end here
-
-				@ Your codes must put the output into r1, to be printed by the printf()
 	ldr	r0, =message	@ the message string is the first argument of the printf()
 	bl	printf		@ invoke the printf()
 

@@ -16,7 +16,7 @@ main:
 				@ Your ALU codes start here
 
 				@ Your codes must NOT update the special registers (SP, LR, PC).
-				@ Your codes must put the output into r0, to be printed by the printf()
+				@ Your codes must put the output into r1, to be printed by the printf()
 
 				@ Your ALU codes end here
 
