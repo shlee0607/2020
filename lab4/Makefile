@@ -6,7 +6,7 @@ EMU = qemu-arm-static
 EMU_FLAGS = -L /usr/arm-linux-gnueabi
 GDB_PORT = 1234
 
-PROGRAM = mac-s2
+PROGRAM = mac-p2
 
 all: $(PROGRAM).out
 
