@@ -22,39 +22,34 @@ main:
 
 @ Your codes for part 6 (vector multiplication using auto-update address) starts
 				@ Reset r1, which will serve as a storage of sum, to 0
-	MOV	r1, #0
 
 				@ Use a LDR pseudo instruction to set r2 to vectorA address
-	LDR	r2, =vectorA
+
 				@ Use a LDR pseudo instruction to set r3 to vectorB address
-	LDR	r3, =vectorB
 
 				@ Reset r0, which will serve as an index, to 0
 				@ (this is the initialization part of the for loop, int i=0)
-	MOV	r0, #0
+
 loop_label:
 				@ Compare r0 with 4
 				@ (this is the comparison part of the for loop, i < 4)
-	CMP	r0, #4
+
 				@ Branch to done_label, if the comparison failed
-	BGE	done_label
+
 				@ Calculate A's element address by adding r0*4 to r2, save it to r4
-	ADD	r4, r2, r0, LSL #2
+
 				@ Calculate B's element address by adding r0*4 to r3, save it to r5
-	ADD	r5, r3, r0, LSL #2
 
 				@ Load A's element to r6
-	LDR	r6, [r4]
+
 				@ Load B's element to r7
-	LDR	r7, [r5]
 
 				@ Use Multiply-accumulate instruction to update r1 with r6*r7
-	MLA	r1, r6, r7, r1
+
 				@ Increment r0 by 1
 				@ (this is the increment part of the for loop, i++)
-	ADD	r0, r0, #1
+
 				@ Branch back to loop_label
-	B	loop_label
 
 @ Your codes for part 6 (vector multiplication using auto-update address) ends
 done_label:

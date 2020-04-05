@@ -32,7 +32,8 @@ main:
 				@ Part 1: Intialize i to 0 before entering the loop
 loop_label:
 				@ Part 2: Loop comparison
-				@ in this part, you need to compare i with 16 and branch to done_label, if the loop ended
+				@ in this part, you need to compare i with 16.
+				@ if the test fails, you need to branch to done_label
 
 				@ Part 3: Memory load using LDM
 				@ in this part you need to load 4 elements of A and B, each, to 8 registers
